@@ -13,9 +13,7 @@ const watchListSlice = createSlice({
       );
 
       if (movieExist) {
-        movieExist.watchList = false;
-      } else {
-        movieExist.watchList = true;
+        movieExist.watchList.watchList = action.payload.watchList;
       }
     },
   },
