@@ -5,3 +5,11 @@
   padding: 0;
   box-sizing: border-box;
 }
+
+.green {
+  background-color: green;
+}
+
+.red {
+  background-color: red;
+}

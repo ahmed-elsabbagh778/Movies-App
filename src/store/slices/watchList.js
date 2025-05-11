@@ -13,7 +13,11 @@ const watchListSlice = createSlice({
       );
 
       if (movieExist) {
-        movieExist.watchList.watchList = action.payload.watchList;
+        state.moviesWatchList = state.moviesWatchList.filter(
+          (movie) => movie.id !== action.payload.id
+        );
+      } else {
+        state.moviesWatchList.push(action.payload);
       }
     },
   },
