@@ -7,6 +7,7 @@ import { addRemoveMovie } from "../../store/slices/watchList";
 import { faHeart as solidHeart } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as regularHeart } from "@fortawesome/free-regular-svg-icons";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
+import { faEye } from "@fortawesome/free-solid-svg-icons";
 
 function MovieCard(props) {
   const { movie } = props;
@@ -22,7 +23,7 @@ function MovieCard(props) {
 
   return (
     <Card className="movie-card">
-      <div className="image-container">
+      <div className="image-container" onClick={() => alert("clicked")}>
         <Card.Img
           className="movie-card-img"
           variant="top"
