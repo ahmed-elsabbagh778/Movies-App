@@ -7,14 +7,20 @@ import { addRemoveMovie } from "../../store/slices/watchList";
 import { faHeart as solidHeart } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as regularHeart } from "@fortawesome/free-regular-svg-icons";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 function MovieCard(props) {
   const { movie } = props;
+  const navigate = useNavigate();
+  const apiKey = import.meta.env.VITE_APP_API_KEY;
 
   const watchList = useSelector((state) => state.watchList.moviesWatchList);
 
   const isInWatchList = watchList.some((item) => item.id === movie.id);
+
+  const handleClick = () => {
+    navigate(`/movie/${movie.id}?api_key=${apiKey}`);
+  };
 
   const dispatch = useDispatch();
   const handleWatchList = () => {
@@ -31,6 +37,7 @@ function MovieCard(props) {
           src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
         />
         <div className="overlay"></div>
+
         <div className="video-icon">
           <FontAwesomeIcon icon={faEye} />
         </div> 
