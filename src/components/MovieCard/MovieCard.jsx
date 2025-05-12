@@ -22,7 +22,7 @@ function MovieCard(props) {
 
   return (
     <Card className="movie-card">
-      <div className="image-container" onClick={() => alert('clicked')}>
+      <div className="image-container">
         <Card.Img
           className="movie-card-img"
           variant="top"
