@@ -15,15 +15,6 @@ const MovieDetails = () => {
       .then((res) => setMovie(res.data))
       .catch((err) => console.log(err));
   }, [id]);
-  /*useEffect(() => {
-  axiosInstance
-    .get(`/movie/${id}?api_key=${apiKey}`)
-    .then((res) => {
-      console.log("Movie data:", res.data); // 👈 Add this
-      setMovie(res.data);
-    })
-    .catch((err) => console.log("Error fetching movie details:", err));
-}, [id]);*/
   if (!movie) return <LoadingSpinner />;
   return (
     <div className="movie-details container mt-5">
