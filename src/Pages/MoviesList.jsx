@@ -1,13 +1,23 @@
 import { useDispatch, useSelector } from "react-redux";
 import { addRemoveMovie } from "../store/slices/watchList";
+import { useEffect, useState } from "react";
+import { axiosInstance } from "../apis/config";
+import MovieCard from "../components/MovieCard/MovieCard";
 
-const movies = [
-  { id: 1, name: "movie 1" },
-  { id: 2, name: "movie 2" },
-  { id: 3, name: "movie 3" },
-];
+
+
 
 const MoviesList = () => {
+  const [movies, setMovies] = useState([]);
+  const apiKey = import.meta.env.VITE_APP_API_KEY;
+
+useEffect(() => {
+  axiosInstance
+    .get(`/movie/now_playing?api_key=${apiKey}`)
+    .then((res) => setMovies(res.data.results))
+    .catch((err) => console.log(err));
+}, []);
+
   const watchList = useSelector((state) => state.watchList.moviesWatchList);
   const dispatch = useDispatch();
 
@@ -21,21 +31,20 @@ const MoviesList = () => {
   };
 
   return (
-    <div>
-      {movies.map((movie) => (
-        <div key={movie.id}>
-          <h1>{movie.name}</h1>
-          <button
-            onClick={() => handleWatchList(movie)}
-            className={`${
-              watchList.find((item) => item.id === movie.id) ? "green" : "red"
-            }`}
-          >
-            add to list
-          </button>
+
+    <>
+      <div className="container">
+        <div className="row mt-5 g-4">
+          {movies.map((movie) => {
+            return (
+              <div className="col-xl-2 col-lg-3 col-md-4 col-sm-6" key={movie.id}>
+                <MovieCard movie={movie} />
+              </div>
+            );
+          })}
         </div>
-      ))}
-    </div>
+      </div>
+    </>
   );
 };
 
