@@ -2,24 +2,30 @@ import Card from "react-bootstrap/Card";
 import "./MovieCard.css";
 import { Badge } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlayCircle } from "@fortawesome/free-solid-svg-icons";
+import { useDispatch, useSelector } from "react-redux";
+import { addRemoveMovie } from "../../store/slices/watchList";
+import { faHeart as solidHeart } from "@fortawesome/free-solid-svg-icons";
+import { faHeart as regularHeart } from "@fortawesome/free-regular-svg-icons";
 
 function MovieCard(props) {
   const { movie } = props;
 
+  const watchList = useSelector((state) => state.watchList.moviesWatchList);
+
+  const isInWatchList = watchList.some((item) => item.id === movie.id);
+
+  const dispatch = useDispatch();
+  const handleWatchList = () => {
+    dispatch(addRemoveMovie(movie));
+  };
+
   return (
     <Card className="movie-card">
-      <div className="image-container" onClick={() => alert('clicked')}>
-        <Card.Img
-          className="movie-card-img"
-          variant="top"
-          src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
-        />
-        <div className="overlay"></div>
-        <div className="video-icon">
-          <FontAwesomeIcon icon={faPlayCircle} />
-        </div>
-      </div>
+      <Card.Img
+        className="movie-card-img"
+        variant="top"
+        src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
+      />
 
       <Badge className="movie-rate">{movie.vote_average.toFixed(1)}</Badge>
       <Card.Body className="movie-card-body">
@@ -29,6 +35,16 @@ function MovieCard(props) {
             {movie.release_date}
           </Card.Text>
         </div>
+
+        <button
+          onClick={handleWatchList}
+          style={{ background: "none", border: "none" }}
+        >
+          <FontAwesomeIcon
+            icon={isInWatchList ? solidHeart : regularHeart}
+            style={{ color: isInWatchList ? "red" : "gray" }}
+          />
+        </button>
       </Card.Body>
     </Card>
   );

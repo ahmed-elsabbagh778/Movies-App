@@ -1,5 +1,4 @@
-import { useDispatch, useSelector } from "react-redux";
-import { addRemoveMovie } from "../../store/slices/watchList";
+
 import { useEffect, useState } from "react";
 import { axiosInstance } from "../../apis/config";
 import MovieCard from "../../components/MovieCard/MovieCard";
@@ -29,17 +28,6 @@ const MoviesList = () => {
       .catch((err) => console.log(err));
   }, [page]);
 
-  const watchList = useSelector((state) => state.watchList.moviesWatchList);
-  const dispatch = useDispatch();
-
-  const handleWatchList = (movie) => {
-    dispatch(
-      addRemoveMovie({
-        id: movie.id,
-        name: movie.name,
-      })
-    );
-  };
 
   return (
     <>
