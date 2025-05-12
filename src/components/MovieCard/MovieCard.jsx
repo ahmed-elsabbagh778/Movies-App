@@ -2,7 +2,7 @@ import Card from "react-bootstrap/Card";
 import "./MovieCard.css";
 import { Badge } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faPlayCircle } from "@fortawesome/free-solid-svg-icons";
+import { faEye } from "@fortawesome/free-solid-svg-icons";
 
 function MovieCard(props) {
   const { movie } = props;
@@ -17,7 +17,7 @@ function MovieCard(props) {
         />
         <div className="overlay"></div>
         <div className="video-icon">
-          <FontAwesomeIcon icon={faPlayCircle} />
+          <FontAwesomeIcon icon={faEye} />
         </div>
       </div>
 
