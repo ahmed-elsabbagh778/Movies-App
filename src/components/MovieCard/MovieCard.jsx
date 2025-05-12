@@ -6,6 +6,7 @@ import { useDispatch, useSelector } from "react-redux";
 import { addRemoveMovie } from "../../store/slices/watchList";
 import { faHeart as solidHeart } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as regularHeart } from "@fortawesome/free-regular-svg-icons";
+import { Link } from "react-router-dom";
 
 function MovieCard(props) {
   const { movie } = props;
@@ -21,12 +22,14 @@ function MovieCard(props) {
 
   return (
     <Card className="movie-card">
-      <Card.Img
+      <Link to={`/movie/${movie.id}`}>
+        <Card.Img
         className="movie-card-img"
         variant="top"
         src={`https://image.tmdb.org/t/p/w500/${movie.poster_path}`}
       />
-
+      </Link>
+      
       <Badge className="movie-rate">{movie.vote_average.toFixed(1)}</Badge>
       <Card.Body className="movie-card-body">
         <Card.Title className="movie-card-title">{movie.title}</Card.Title>
