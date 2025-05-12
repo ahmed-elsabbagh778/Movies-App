@@ -2,10 +2,23 @@ import Card from "react-bootstrap/Card";
 import "./MovieCard.css";
 import { Badge } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { useDispatch, useSelector } from "react-redux";
+import { addRemoveMovie } from "../../store/slices/watchList";
+import { faHeart as solidHeart } from "@fortawesome/free-solid-svg-icons";
+import { faHeart as regularHeart } from "@fortawesome/free-regular-svg-icons";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 
 function MovieCard(props) {
   const { movie } = props;
+
+  const watchList = useSelector((state) => state.watchList.moviesWatchList);
+
+  const isInWatchList = watchList.some((item) => item.id === movie.id);
+
+  const dispatch = useDispatch();
+  const handleWatchList = () => {
+    dispatch(addRemoveMovie(movie));
+  };
 
   return (
     <Card className="movie-card">
@@ -29,6 +42,16 @@ function MovieCard(props) {
             {movie.release_date}
           </Card.Text>
         </div>
+
+        <button
+          onClick={handleWatchList}
+          style={{ background: "none", border: "none" }}
+        >
+          <FontAwesomeIcon
+            icon={isInWatchList ? solidHeart : regularHeart}
+            style={{ color: isInWatchList ? "red" : "gray" }}
+          />
+        </button>
       </Card.Body>
     </Card>
   );
