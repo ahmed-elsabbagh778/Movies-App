@@ -1,0 +1,16 @@
+.now-playing {
+  position: relative;
+  display: inline-block;
+}
+
+.now-playing::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 5px;
+  width: 15%;
+  height: 3px;
+  background-color: #e50914;
+}
+
+

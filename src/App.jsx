@@ -1,4 +1,4 @@
-import MoviesList from "./Pages/MoviesList";
+import MoviesList from "./Pages/MoviesList/MoviesList";
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
