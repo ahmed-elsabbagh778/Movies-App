@@ -1,11 +1,14 @@
-import MoviesList from "./Pages/MoviesList/MoviesList";
 import "bootstrap/dist/css/bootstrap.min.css";
+import { BrowserRouter as Router } from "react-router-dom";
+import Navbar from "./Components/Navbar";
+import RoutesList from "./Routes/RoutesList";
 
 function App() {
   return (
-    <>
-      <MoviesList />
-    </>
+    <Router>
+      <Navbar />
+      <RoutesList />
+    </Router>
   );
 }
 
