@@ -86,3 +86,19 @@
   text-shadow: 0 0 1px 4px black;
   z-index: 3;
 }
+
+
+@media (max-width: 576px) {
+  .movie-card {
+    max-width: 140px;
+
+    .movie-card-img {
+      height: auto;
+      max-height: 240px;
+    }
+
+    .movie-card-title {
+      font-size: 14px;
+    }
+  }
+}

@@ -86,3 +86,18 @@
   text-shadow: 0 0 1px 4px black;
   z-index: 3;
 }
+
+@media (max-width: 576px) {
+  .tvShow-card {
+    max-width: 140px;
+
+    .tvShow-card-img {
+      height: auto;
+      max-height: 240px;
+    }
+
+    .tvShow-card-title {
+      font-size: 14px;
+    }
+  }
+}

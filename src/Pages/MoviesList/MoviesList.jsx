@@ -40,7 +40,7 @@ const MoviesList = () => {
           {movies.map((movie) => {
             return (
               <div
-                className="col-xl-2 col-lg-3 col-md-4 col-sm-6 h-100"
+                className="col-xl-2 col-lg-3 col-md-4 col-6 h-100"
                 key={movie.id}
               >
                 <MovieCard movie={movie} />
