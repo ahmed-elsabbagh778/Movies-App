@@ -1,11 +1,11 @@
+import { Carousel } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { axiosInstance } from "../../apis/config";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import "./MovieDetails.css";
 import { useLanguage } from "../../Context/languageContext";
-import { Link } from "react-router-dom";
-
+import MovieCard from "../../components/MovieCard/MovieCard";
 
 const MovieDetails = () => {
   const { id } = useParams();
@@ -58,25 +58,32 @@ useEffect(() => {
         </div>
       </div>
       </div>
-      {recommendations.length > 0 && (
-  <div className="recommendations mt-5">
-    <h3 className="text-white mb-4">Recommendations</h3>
-    <div className="row">
-      {recommendations.slice(0, 6).map((rec) => (
-        <div key={rec.id} className="col-md-2 col-sm-4 mb-4">
-          <div className="rec-movie-card">
-           <Link to={`/movie/${rec.id}`}>
-            <img
-              src={`https://image.tmdb.org/t/p/w300${rec.poster_path}`}
-              alt={rec.title}
-              className="img-fluid rounded"
-            /></Link>
-            <p className="rec-title mt-2 text-center text-white">{rec.title}</p>
+  {recommendations.length > 0 && (
+  <div className="container-fluid px-5 mt-5">
+    <h3 className="recommendations-title text-white mb-4">Recommendations</h3>
+    <Carousel indicators={false} interval={null}>
+      {recommendations.slice(0, 20).reduce((groups, rec, index) => {
+        const groupIndex = Math.floor(index / 5);
+        if (!groups[groupIndex]) groups[groupIndex] = [];
+        groups[groupIndex].push(rec);
+        return groups;
+      }, []).map((group, idx) => (
+        <Carousel.Item key={idx}>
+          <div
+            className="d-flex justify-content-center gap-4"
+            style={{ flexWrap: "nowrap", overflowX: "auto" }}
+          >
+            {group.map((rec) => (
+            <div key={rec.id} style={{ minWidth: "200px" }}>
+              <MovieCard movie={rec} />
+            </div>
+          ))}
           </div>
-        </div>
+        </Carousel.Item>
       ))}
-    </div>
-  </div>)}
+    </Carousel>
+  </div>
+)}
 </>
   );
 };
