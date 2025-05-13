@@ -61,3 +61,19 @@
 .details p {
   margin: 0.3rem 0;
 }
+
+.recommendations {
+  padding: 2rem 0;
+}
+
+.rec-movie-card img {
+  transition: transform 0.3s ease;
+}
+
+.rec-movie-card img:hover {
+  transform: scale(1.05);
+}
+
+.rec-title {
+  font-size: 1rem;
+}
