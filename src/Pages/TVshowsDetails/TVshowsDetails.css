@@ -11,6 +11,7 @@ body {
   gap: 2rem;
   color:white;
   padding: 2rem;
+  align-items: flex-start;
  }
 
 .poster-container {
@@ -89,4 +90,10 @@ body {
 }
 .carousel {
   position: relative;
+}
+
+.production-logo {
+  display: inline-block;
+  vertical-align: middle;
+  margin-right: 0 20px;
 }
