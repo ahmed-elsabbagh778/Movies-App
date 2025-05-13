@@ -3,15 +3,17 @@ import { useEffect, useState } from "react";
 import { axiosInstance } from "../../apis/config";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import "./MovieDetails.css";
+import { useLanguage } from "../../Context/languageContext";
 
 const MovieDetails = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
   const apiKey = import.meta.env.VITE_APP_API_KEY;
+  const { language } = useLanguage();
 
   useEffect(() => {
     axiosInstance
-      .get(`/movie/${id}?api_key=${apiKey}`)
+      .get(`/movie/${id}?api_key=${apiKey}&language=${language}`)
       .then((res) => setMovie(res.data))
       .catch((err) => console.log(err));
   }, [id]);
@@ -47,8 +49,6 @@ const MovieDetails = () => {
       </div>
       </div>
   );
-  
 };
-
 
 export default MovieDetails;

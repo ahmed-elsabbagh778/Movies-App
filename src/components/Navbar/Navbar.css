@@ -1,0 +1,13 @@
+.dropdown-menu {
+  width: 100% !important;
+  min-width: 0 !important;
+  max-width: none !important;
+}
+
+.dropdown-menu-end {
+  right: 0;
+}
+
+.dropdown-item {
+  text-align: left;
+}

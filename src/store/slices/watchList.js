@@ -1,9 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
+const storedWatchList = localStorage.getItem("moviesWatchList");
+
 const watchListSlice = createSlice({
   name: "watchList",
   initialState: {
-    moviesWatchList: [],
+    moviesWatchList: storedWatchList ? JSON.parse(storedWatchList) : [],
   },
 
   reducers: {
@@ -19,6 +21,11 @@ const watchListSlice = createSlice({
       } else {
         state.moviesWatchList.push(action.payload);
       }
+
+      localStorage.setItem(
+        "moviesWatchList",
+        JSON.stringify(state.moviesWatchList)
+      );
     },
   },
 });
