@@ -15,6 +15,7 @@ const MovieDetails = () => {
   const { language } = useLanguage();
 
 useEffect(() => {
+  window.scrollTo(0, 0);
   axiosInstance
     .get(`/movie/${id}?api_key=${apiKey}&language=${language}`)
     .then((res) => setMovie(res.data))
