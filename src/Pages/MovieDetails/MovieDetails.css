@@ -1,0 +1,63 @@
+.movie-details {
+  display: flex;
+  background-color: black;
+  gap: 2rem;
+  color: white;
+  padding: 2rem;
+  border-radius: 10px;
+}
+
+.poster-container {
+  display: flex;
+  justify-content: center;
+  align-items: start;
+}
+
+.poster-img {
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 10px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.5);
+}
+
+.info-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  padding-top: 30px;
+}
+
+.movie-title {
+  font-size: 3rem;
+  font-weight: bold;
+  margin-bottom: 1rem;
+}
+.movie-description {
+  font-size: 1.2rem;
+  line-height: 1.6;
+  margin-bottom: 1.5rem;
+}
+
+.genres {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+  margin-bottom: 1rem;
+}
+
+.genre-badge {
+  background-color: #f1c40f;
+  color: black;
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-weight: bold;
+}
+
+.details {
+  margin-top: 1rem;
+}
+
+.details p {
+  margin: 0.3rem 0;
+}
