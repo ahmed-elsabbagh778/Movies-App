@@ -14,9 +14,9 @@ function Navbar() {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light p-3">
       <div className="container-fluid">
-        <div className="navbar-brand fs-3">Movies</div>
+        <div className="navbar-brand fs-3">Movie Box</div>
 
-        <ul className="navbar-nav me-auto mb-2 mb-lg-0">
+        <ul className="navbar-nav me-lg-auto mb-2 mb-lg-0">
           <li className="nav-item">
             <Link to="/" className="nav-link px-3">
               Movies
@@ -36,7 +36,7 @@ function Navbar() {
 
         <div className="dropdown">
           <button
-            className="btn btn-outline-secondary dropdown-toggle"
+            className="btn dropdown-toggle"
             type="button"
             id="languageDropdown"
             data-bs-toggle="dropdown"

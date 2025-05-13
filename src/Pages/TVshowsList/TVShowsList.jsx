@@ -4,7 +4,7 @@ import { useLanguage } from "../../Context/languageContext";
 import './TVShowsList.css';
 import { Pagination } from "react-bootstrap";
 import renderPaginationItems from "../../components/Pagination/Pagination";
-import TVShowsCard from "../../components/TVShowsCard/TVShowsCard";
+import TVShowsCard from "../../components/TVshowsCard/TVShowsCard";
 
 const TvShowsList = () => {
   const [tvShows, setTvShows] = useState([]);

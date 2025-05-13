@@ -13,7 +13,7 @@ export default function RoutesList() {
       <Routes>
         <Route path="/" element={<MoviesList />} />
         <Route path="/movie/:id" element={<MovieDetails />} />
-        <Route path="/movie/:id" element={<TVshowsDetails />} />
+        <Route path="/tv/:id" element={<TVshowsDetails />} />
         <Route path="/tvShows" element={<TvShowsList />} />
         <Route path="/favourites" element={<Favourites />} />
         <Route path="*" element={<NotFound />} />
