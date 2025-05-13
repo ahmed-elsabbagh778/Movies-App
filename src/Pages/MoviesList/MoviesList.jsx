@@ -1,16 +1,17 @@
-
 import { useEffect, useState } from "react";
 import { axiosInstance } from "../../apis/config";
 import MovieCard from "../../components/MovieCard/MovieCard";
 import "./MoviesList.css";
 import { Pagination } from "react-bootstrap";
 import renderPaginationItems from "../../components/Pagination/Pagination";
+import { useLanguage } from "../../Context/languageContext";
 
 const MoviesList = () => {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1);
   const [totalPages, setTotalPages] = useState(1);
   const apiKey = import.meta.env.VITE_APP_API_KEY;
+  const { language } = useLanguage();
 
   const changePage = (newPage) => {
     if (newPage >= 1 && newPage <= totalPages) {
@@ -20,14 +21,15 @@ const MoviesList = () => {
 
   useEffect(() => {
     axiosInstance
-      .get(`/movie/now_playing?api_key=${apiKey}&page=${page}`)
+      .get(
+        `/movie/now_playing?api_key=${apiKey}&page=${page}&language=${language}`
+      )
       .then((res) => {
         setMovies(res.data.results);
         setTotalPages(res.data.total_pages);
       })
       .catch((err) => console.log(err));
-  }, [page]);
-
+  }, [page, language]);
 
   return (
     <>
