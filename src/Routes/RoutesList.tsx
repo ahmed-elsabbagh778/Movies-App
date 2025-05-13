@@ -4,6 +4,7 @@ import MoviesList from "../Pages/MoviesList/MoviesList";
 const MovieDetails = lazy(() => import("../Pages/MovieDetails/MovieDetails"));
 const Favourites = lazy(() => import("../pages/Favourites/Favourites"));
 const NotFound = lazy(() => import("../pages/NotFound"));
+const TvShowsList = lazy(() => import("../Pages/TVshowsList/TVShowsList"));
 
 export default function RoutesList() {
   return (
@@ -11,6 +12,7 @@ export default function RoutesList() {
       <Routes>
         <Route path="/" element={<MoviesList />} />
         <Route path="/movie/:id" element={<MovieDetails />} />
+        <Route path="/tvShows" element={<TvShowsList />} />
         <Route path="/favourites" element={<Favourites />} />
         <Route path="*" element={<NotFound />} />
       </Routes>

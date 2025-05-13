@@ -1,0 +1,21 @@
+
+
+@media (prefers-color-scheme: dark) {
+    .custom-bg {
+        
+        color: white !important;
+    }
+
+    .custom-btn {
+        background-color: #e50914 !important;
+        color: white !important;
+        border: none;
+    }
+
+    .link {
+        color: white !important;
+        text-decoration: none !important;
+    }
+
+    
+}

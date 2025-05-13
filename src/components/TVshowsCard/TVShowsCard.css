@@ -1,0 +1,88 @@
+* {
+  font-family: "Montserrat", sans-serif;
+}
+
+.tvShow-card {
+  width: 12rem;
+  border: none !important;
+  background-color: transparent !important;
+  height: 100%;
+
+  .tvShow-card-title {
+    font-size: medium;
+    color: white;
+  }
+
+  .tvShow-card-date {
+    font-size: small;
+    color: white;
+    opacity: 0.6;
+  }
+
+  .tvShow-rate {
+    height: 25px;
+    width: 25px;
+    line-height: 27px;
+    padding: 0;
+    border-radius: 50%;
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    background-color: black !important;
+    outline: 3px solid #e50914;
+    box-shadow: 0 0 1px 4px black;
+    font-size: 10px !important;
+    z-index: 5;
+  }
+
+  .image-container {
+    position: relative;
+    width: 100%;
+    overflow: hidden;
+  }
+
+  .tvShow-card-img {
+    transition: 0.3s ease;
+    width: 100%;
+    height: 300px;
+    object-fit: cover;
+  }
+
+  .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    opacity: 0;
+    transition: 0.3s ease;
+    z-index: 1;
+  }
+
+  .video-icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 50px;
+    color: white;
+    opacity: 0;
+    transition: 0.3s ease;
+  }
+}
+
+.image-container:hover .tvShow-card-img {
+  transform: scale(1.08);
+}
+
+.tvShow-card:hover .overlay {
+  opacity: 1;
+}
+
+.tvShow-card:hover .video-icon {
+  opacity: 1;
+  transform: translate(-50%, -50%) scale(1.08);
+  text-shadow: 0 0 1px 4px black;
+  z-index: 3;
+}

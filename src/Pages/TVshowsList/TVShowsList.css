@@ -1,0 +1,14 @@
+.popular {
+  position: relative;
+  display: inline-block;
+}
+
+.popular::after {
+  content: "";
+  position: absolute;
+  bottom: -10px;
+  left: 5px;
+  width: 15%;
+  height: 3px;
+  background-color: #e50914;
+}
