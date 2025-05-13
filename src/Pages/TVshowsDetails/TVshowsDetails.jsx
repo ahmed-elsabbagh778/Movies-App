@@ -75,7 +75,7 @@ useEffect(() => {
           >
             {group.map((rec) => (
             <div key={rec.id} style={{ minWidth: "200px" }}>
-              <TVShowsCard tvShows={rec} />
+              <TVShowsCard tvShow={rec} />
             </div>
           ))}
           </div>
