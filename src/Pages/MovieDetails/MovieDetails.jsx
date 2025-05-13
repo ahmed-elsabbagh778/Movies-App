@@ -3,15 +3,17 @@ import { useEffect, useState } from "react";
 import { axiosInstance } from "../../apis/config";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import "./MovieDetails.css";
+import { useLanguage } from "../../Context/languageContext";
 
 const MovieDetails = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
   const apiKey = import.meta.env.VITE_APP_API_KEY;
+  const { language } = useLanguage();
 
   useEffect(() => {
     axiosInstance
-      .get(`/movie/${id}?api_key=${apiKey}`)
+      .get(`/movie/${id}?api_key=${apiKey}&language=${language}`)
       .then((res) => setMovie(res.data))
       .catch((err) => console.log(err));
   }, [id]);
@@ -28,16 +30,23 @@ const MovieDetails = () => {
           />
         </div>
         <div className="col-md-8">
-          <p><strong>Overview:</strong> {movie.overview}</p>
-          <p><strong>Genres:</strong> {movie.genres.map(g => g.name).join(", ")}</p>
-          <p><strong>Release Date:</strong> {movie.release_date}</p>
-          <p><strong>Rating:</strong> {movie.vote_average}</p>
+          <p>
+            <strong>Overview:</strong> {movie.overview}
+          </p>
+          <p>
+            <strong>Genres:</strong>{" "}
+            {movie.genres.map((g) => g.name).join(", ")}
+          </p>
+          <p>
+            <strong>Release Date:</strong> {movie.release_date}
+          </p>
+          <p>
+            <strong>Rating:</strong> {movie.vote_average}
+          </p>
         </div>
       </div>
     </div>
   );
-  
 };
-
 
 export default MovieDetails;
