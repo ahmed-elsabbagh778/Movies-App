@@ -1,6 +1,7 @@
 import React, { Suspense, lazy } from "react";
 import { Route, Routes } from "react-router";
-import MoviesList from "../Pages/MoviesList/MoviesList";
+const MoviesList  = lazy (() => import("../Pages/MoviesList/MoviesList"));
+const TVshowsDetails  = lazy(() => import ("../Pages/TVshowsDetails/TVshowsDetails"));
 const MovieDetails = lazy(() => import("../Pages/MovieDetails/MovieDetails"));
 const Favourites = lazy(() => import("../pages/Favourites/Favourites"));
 const NotFound = lazy(() => import("../pages/NotFound"));
@@ -12,6 +13,7 @@ export default function RoutesList() {
       <Routes>
         <Route path="/" element={<MoviesList />} />
         <Route path="/movie/:id" element={<MovieDetails />} />
+        <Route path="/movie/:id" element={<TVshowsDetails />} />
         <Route path="/tvShows" element={<TvShowsList />} />
         <Route path="/favourites" element={<Favourites />} />
         <Route path="*" element={<NotFound />} />

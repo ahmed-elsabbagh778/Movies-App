@@ -7,11 +7,8 @@ import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import "./TVShowsCard.css";
 
-function TvShowsCard(props) {
-  const { tvShow } = props;
-  const apiKey = import.meta.env.VITE_APP_API_KEY;
-
-
+function TVShowsCard({ tvShow }) {
+  if (!tvShow || !tvShow.poster_path) return null;
 
   return (
     <Card className="tvShow-card">
@@ -20,38 +17,32 @@ function TvShowsCard(props) {
           <Card.Img
             className="tvShow-card-img"
             variant="top"
-            src={
-                `https://image.tmdb.org/t/p/w500/${tvShow.poster_path}`
-            }
-            
+            src={`https://image.tmdb.org/t/p/w500/${tvShow.poster_path}`}
+            alt={tvShow.name}
           />
           <div className="overlay"></div>
-
           <div className="video-icon">
             <FontAwesomeIcon icon={faEye} />
           </div>
         </Link>
       </div>
-      <Badge className="tvShow-rate">{tvShow.vote_average.toFixed(1)}</Badge>
+
+      <Badge className="tvShow-rate">
+        {tvShow.vote_average?.toFixed(1)}
+      </Badge>
+
       <Card.Body className="tvShow-card-body">
         <Card.Title className="tvShow-card-title">{tvShow.name}</Card.Title>
-        <div>
-          <Card.Text className="tvShow-card-date">
-            {tvShow.first_air_date}
-          </Card.Text>
-        </div>
+        <Card.Text className="tvShow-card-date">
+          {tvShow.first_air_date}
+        </Card.Text>
 
-        <button
-        //   onClick={}
-          style={{ background: "none", border: "none" }}
-        >
-          <FontAwesomeIcon
-            // icon={isInWatchList ? solidHeart : regularHeart}
-            // style={{ color: isInWatchList ? "red" : "gray" }}
-          />
+        <button style={{ background: "none", border: "none" }}>
+          <FontAwesomeIcon icon={regularHeart} style={{ color: "gray" }} />
         </button>
       </Card.Body>
     </Card>
   );
 }
-export default TvShowsCard;
+
+export default TVShowsCard;

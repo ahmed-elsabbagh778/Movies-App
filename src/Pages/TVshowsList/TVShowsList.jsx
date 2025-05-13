@@ -4,7 +4,7 @@ import { useLanguage } from "../../Context/languageContext";
 import './TVShowsList.css';
 import { Pagination } from "react-bootstrap";
 import renderPaginationItems from "../../components/Pagination/Pagination";
-import TvShowsCard from "../../components/TVshowsCard/TVShowsCard";
+import TVShowsCard from "../../components/TVShowsCard/TVShowsCard";
 
 const TvShowsList = () => {
   const [tvShows, setTvShows] = useState([]);
@@ -41,7 +41,7 @@ const TvShowsList = () => {
                 className="col-xl-2 col-lg-3 col-md-4 col-6 h-100"
                 key={tvShow.id}
               >
-                <TvShowsCard tvShow={tvShow} />
+                <TVShowsCard tvShow={tvShow} />
               </div>
             );
           })}
