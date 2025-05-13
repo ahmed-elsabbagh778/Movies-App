@@ -1,25 +1,35 @@
+import { Carousel } from "react-bootstrap";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { axiosInstance } from "../../apis/config";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import "./MovieDetails.css";
 import { useLanguage } from "../../Context/languageContext";
+import MovieCard from "../../components/MovieCard/MovieCard";
 
 const MovieDetails = () => {
   const { id } = useParams();
   const [movie, setMovie] = useState(null);
+  const [recommendations, setRecommendations] = useState([]);
   const apiKey = import.meta.env.VITE_APP_API_KEY;
   const { language } = useLanguage();
 
-  useEffect(() => {
-    axiosInstance
-      .get(`/movie/${id}?api_key=${apiKey}&language=${language}`)
-      .then((res) => setMovie(res.data))
-      .catch((err) => console.log(err));
-  }, [id]);
+useEffect(() => {
+  axiosInstance
+    .get(`/movie/${id}?api_key=${apiKey}&language=${language}`)
+    .then((res) => setMovie(res.data))
+    .catch((err) => console.log(err));
+
+  axiosInstance
+    .get(`/movie/${id}/recommendations?api_key=${apiKey}&language=${language}`)
+    .then((res) => setRecommendations(res.data.results))
+    .catch((err) => console.log(err));
+}, [id, language]);
+
 
   if (!movie) return <LoadingSpinner />;
   return (
+    <>
     <div className="movie-details container-fluid px-5">
        <div className="row align-items-center">
       <div className="col-md-4 poster-container">
@@ -48,6 +58,33 @@ const MovieDetails = () => {
         </div>
       </div>
       </div>
+  {recommendations.length > 0 && (
+  <div className="container-fluid px-5 mt-5">
+    <h3 className="recommendations-title text-white mb-4">Recommendations</h3>
+    <Carousel indicators={false} interval={null}>
+      {recommendations.slice(0, 20).reduce((groups, rec, index) => {
+        const groupIndex = Math.floor(index / 5);
+        if (!groups[groupIndex]) groups[groupIndex] = [];
+        groups[groupIndex].push(rec);
+        return groups;
+      }, []).map((group, idx) => (
+        <Carousel.Item key={idx}>
+          <div
+            className="d-flex justify-content-center gap-4"
+            style={{ flexWrap: "nowrap", overflowX: "auto" }}
+          >
+            {group.map((rec) => (
+            <div key={rec.id} style={{ minWidth: "200px" }}>
+              <MovieCard movie={rec} />
+            </div>
+          ))}
+          </div>
+        </Carousel.Item>
+      ))}
+    </Carousel>
+  </div>
+)}
+</>
   );
 };
 
