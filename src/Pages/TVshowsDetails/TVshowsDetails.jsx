@@ -15,6 +15,7 @@ const TVshowsDetails = () => {
   const { language } = useLanguage();
 
 useEffect(() => {
+  window.scrollTo(0, 0); // scroll to the top of page
   axiosInstance
     .get(`/tv/${id}?api_key=${apiKey}&language=${language}`)
     .then((res) => setTvShows(res.data))
@@ -75,7 +76,7 @@ useEffect(() => {
           >
             {group.map((rec) => (
             <div key={rec.id} style={{ minWidth: "200px" }}>
-              <TVShowsCard tvShows={rec} />
+              <TVShowsCard tvShow={rec} />
             </div>
           ))}
           </div>
