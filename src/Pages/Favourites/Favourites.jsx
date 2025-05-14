@@ -1,7 +1,7 @@
 import "./Favourites.css";
 import { useSelector } from "react-redux";
 import MovieCard from "../../components/MovieCard/MovieCard";
-import TVShowsCard from "../../components/TVShowsCard/TVShowsCard";
+import TVShowsCard from "../../components/TVshowsCard/TVShowsCard";
 import { useLanguage } from "../../Context/languageContext";
 
 function Favorites() {

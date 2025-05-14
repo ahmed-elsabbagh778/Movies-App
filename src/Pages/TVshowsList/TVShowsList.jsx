@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import { Pagination } from "react-bootstrap";
 import { axiosInstance } from "../../apis/config";
-import TVShowsCard from "../../components/TVShowsCard/TVShowsCard";
+import TVShowsCard from "../../components/TVshowsCard/TVShowsCard";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import renderPaginationItems from "../../components/Pagination/Pagination";
 import { useLanguage } from "../../Context/languageContext";
