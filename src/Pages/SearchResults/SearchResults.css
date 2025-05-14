@@ -1,0 +1,14 @@
+.search-results {
+    position: relative;
+    display: inline-block;
+}
+
+.search-results::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 5px;
+    width: 6%;
+    height: 3px;
+    background-color: #e50914;
+}

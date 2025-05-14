@@ -1,8 +1,5 @@
-
-
 @media (prefers-color-scheme: dark) {
     .custom-bg {
-        
         color: white !important;
     }
 
@@ -16,6 +13,13 @@
         color: white !important;
         text-decoration: none !important;
     }
+}
 
-    
+.lang-ar .custom-bg {
+    direction: rtl;
+    text-align: right;
+}
+
+.lang-ar .text-center {
+    text-align: center !important;
 }

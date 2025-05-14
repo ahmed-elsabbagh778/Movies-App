@@ -2,7 +2,6 @@ import Card from "react-bootstrap/Card";
 import { Badge } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart as regularHeart } from "@fortawesome/free-regular-svg-icons";
-
 import { faHeart as solidHeart } from "@fortawesome/free-solid-svg-icons";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
@@ -11,14 +10,12 @@ import { useDispatch, useSelector } from "react-redux";
 import { addRemoveShow } from "../../store/slices/watchList";
 
 function TVShowsCard({ tvShow }) {
+  const watchList = useSelector((state) => state.watchList.showsWatchList);
+  const dispatch = useDispatch();
+  const isInWatchList = watchList.some((item) => item.id === tvShow?.id);
+
   if (!tvShow || !tvShow.poster_path) return null;
 
-  const watchList = useSelector((state) => state.watchList.showsWatchList);
-  console.log(tvShow.id);
-
-  const isInWatchList = watchList.some((item) => item.id === tvShow.id);
-
-  const dispatch = useDispatch();
   const handleWatchList = () => {
     dispatch(addRemoveShow(tvShow));
   };

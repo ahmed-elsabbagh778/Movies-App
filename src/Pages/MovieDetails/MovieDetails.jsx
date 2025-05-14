@@ -27,14 +27,14 @@ const MovieDetails = () => {
       )
       .then((res) => setRecommendations(res.data.results))
       .catch((err) => console.log(err));
-  }, [id, language]);
+  }, [id, language, apiKey]);
 
   if (!movie) return <LoadingSpinner />;
   return (
-    <>
+    <div className={`lang-${language}`}>
       <div className="movie-details container-fluid px-5">
         <div className="row align-items-center">
-          <div className="col-md-3 poster-container">
+          <div className={`col-md-3 poster-container lang-${language}`}>
             <img
               src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
               alt={movie.title}
@@ -52,17 +52,17 @@ const MovieDetails = () => {
               ))}
             </div>
             <p>
-              <strong>Release Date:</strong> {movie.release_date}
+              <strong>{language === "ar" ? "تاريخ الإصدار:" : language === "fr" ? "Date de sortie :" : language === "zh" ? "发布日期：" : "Release Date:"}</strong> {movie.release_date}
             </p>
             <p>
-              <strong>Rating:</strong> {movie.vote_average}
+              <strong>{language === "ar" ? "التقييم:" : language === "fr" ? "Évaluation :" : language === "zh" ? "评分：" : "Rating:"}</strong> {movie.vote_average}
             </p>
             <div className="details">
               <p>
-                <strong>Duration:</strong> {movie.runtime} Min.
+                <strong>{language === "ar" ? "المدة:" : language === "fr" ? "Durée :" : language === "zh" ? "时长：" : "Duration:"}</strong> {movie.runtime} Min.
               </p>
               <p>
-                <strong>Languages:</strong> {movie.original_language}
+                <strong>{language === "ar" ? "اللغات:" : language === "fr" ? "Langues :" : language === "zh" ? "语言：" : "Languages:"}</strong> {movie.original_language}
               </p>
               {movie.production_companies.map(
                 (company) =>
@@ -81,9 +81,9 @@ const MovieDetails = () => {
         </div>
       </div>
       {recommendations.length > 0 && (
-        <div className="container-fluid px-5 mt-5">
-          <h3 className="recommendations-title text-white mb-4">
-            Recommendations
+        <section className="recommendations-section container-fluid px-5 mt-5">
+          <h3 className="recommendations-title text-white">
+            {language === "ar" ? "التوصيات" : language === "fr" ? "Recommandations" : language === "zh" ? "推荐" : "Recommendations"}
           </h3>
           <Carousel indicators={false} interval={null}>
             {recommendations
@@ -109,9 +109,9 @@ const MovieDetails = () => {
                 </Carousel.Item>
               ))}
           </Carousel>
-        </div>
+        </section>
       )}
-    </>
+    </div>
   );
 };
 

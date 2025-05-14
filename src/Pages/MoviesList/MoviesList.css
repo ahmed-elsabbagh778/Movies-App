@@ -1,9 +1,9 @@
-.now-playing {
+.popular {
   position: relative;
   display: inline-block;
 }
 
-.now-playing::after {
+.popular::after {
   content: "";
   position: absolute;
   bottom: -10px;
@@ -12,5 +12,3 @@
   height: 3px;
   background-color: #e50914;
 }
-
-

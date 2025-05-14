@@ -29,52 +29,42 @@ const MoviesList = () => {
         setTotalPages(res.data.total_pages);
       })
       .catch((err) => console.log(err));
-  }, [page, language]);
-
+  }, [page, language, apiKey]);
   return (
-    <>
-      {/* ----------Movies List---------------- */}
-      <div className="container">
-        <div className="row mt-5 g-4">
-          <h2 className="now-playing">Now Playing</h2>
-          {movies.map((movie) => {
-            return (
-              <div
-                className="col-xl-2 col-lg-3 col-md-4 col-6 h-100"
-                key={movie.id}
-              >
-                <MovieCard movie={movie} />
-              </div>
-            );
-          })}
-        </div>
-        {/* ----------Movies List---------------- */}
-
-        {/* ----------Pagination---------------- */}
-        <Pagination>
-          <Pagination.First
-            onClick={() => changePage(1)}
-            disabled={page === 1}
-          />
-          <Pagination.Prev
-            onClick={() => changePage(page - 1)}
-            disabled={page === 1}
-          />
-
-          {renderPaginationItems({ page, totalPages, changePage })}
-
-          <Pagination.Next
-            onClick={() => changePage(page + 1)}
-            disabled={page === totalPages}
-          />
-          <Pagination.Last
-            onClick={() => changePage(totalPages)}
-            disabled={page === totalPages}
-          />
-        </Pagination>
-        {/* ----------Pagination---------------- */}
+    <div className="container">
+      <div className="row mt-5 g-4">
+        <h2 className="now-playing">
+          {language === "ar" ? "الآن يعرض" : language === "fr" ? "Maintenant en salle" : language === "zh" ? "正在上映" : "Now Playing"}
+        </h2>
+        {movies.map((movie) => (
+          <div
+            className="col-xl-2 col-lg-3 col-md-4 col-6 h-100"
+            key={movie.id}
+          >
+            <MovieCard movie={movie} />
+          </div>
+        ))}
       </div>
-    </>
+      <Pagination>
+        <Pagination.First
+          onClick={() => changePage(1)}
+          disabled={page === 1}
+        />
+        <Pagination.Prev
+          onClick={() => changePage(page - 1)}
+          disabled={page === 1}
+        />
+        {renderPaginationItems({ page, totalPages, changePage })}
+        <Pagination.Next
+          onClick={() => changePage(page + 1)}
+          disabled={page === totalPages}
+        />
+        <Pagination.Last
+          onClick={() => changePage(totalPages)}
+          disabled={page === totalPages}
+        />
+      </Pagination>
+    </div>
   );
 };
 

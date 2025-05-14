@@ -1,0 +1,22 @@
+.lang-ar .container {
+    direction: rtl;
+    text-align: right;
+}
+
+.lang-ar .now-playing,
+.lang-ar h2,
+.lang-ar p {
+    text-align: right;
+}
+
+.lang-ar .row {
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: flex-end;
+    flex-wrap: wrap;
+}
+
+.lang-ar .row>[class*="col-"] {
+    display: flex;
+    justify-content: flex-end;
+}

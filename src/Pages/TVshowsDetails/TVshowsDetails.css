@@ -7,12 +7,12 @@ body {
 
 .tvShows-details {
   display: flex;
-  background-color:black;
+  background-color: black;
   gap: 2rem;
-  color:white;
+  color: white;
   padding: 2rem;
   align-items: flex-start;
- }
+}
 
 .poster-container {
   display: flex;
@@ -40,6 +40,7 @@ body {
   font-weight: bold;
   margin-bottom: 1rem;
 }
+
 .tvShows-description {
   font-size: 1.2rem;
   line-height: 1.6;
@@ -69,18 +70,32 @@ body {
   margin: 0.3rem 0;
 }
 
-.recommendations-title{
+.recommendations-section {
+  display: block;
+  margin-top: 2rem;
+}
+
+.recommendations-title {
   color: white;
   font-size: 2.5rem;
   font-weight: bold;
-  padding: 1rem;
+  margin: 0 0 2rem 0;
+  display: block;
+  clear: both;
 }
+
+.carousel {
+  position: relative;
+  display: block;
+}
+
 .carousel-control-prev,
 .carousel-control-next {
   top: 40%;
   transform: translateY(-50%);
   bottom: auto;
 }
+
 .carousel-control-prev-icon,
 .carousel-control-next-icon {
   background-color: rgb(153, 3, 3);
@@ -88,12 +103,38 @@ body {
   border-radius: 50%;
   padding: 1rem;
 }
-.carousel {
-  position: relative;
-}
 
 .production-logo {
   display: inline-block;
   vertical-align: middle;
-  margin-right: 0 20px;
+  margin-right: 20px;
+}
+
+.lang-ar .tvShows-details {
+  direction: rtl;
+  text-align: right;
+}
+
+.lang-ar .row {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+.lang-ar .poster-container {
+  order: 2;
+  justify-content: flex-end;
+}
+
+.lang-ar .info-container {
+  order: 1;
+}
+
+.lang-ar .genres {
+  justify-content: flex-end;
+}
+
+.lang-ar .production-logo {
+  margin-right: 0;
+  margin-left: 20px;
 }

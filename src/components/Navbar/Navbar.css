@@ -1,6 +1,6 @@
 .navbar {
-  background-color: #8B0000 !important;  
-  color: #ffffff !important;  
+  background-color: #8B0000 !important;
+  color: #ffffff !important;
 }
 
 @media (min-width: 992px) {
@@ -16,16 +16,17 @@
   }
 }
 
-.navbar .navbar-brand{
-    font-weight: bold;
-    font-family: 'Josefin Sans', sans-serif;
-}
-.navbar .navbar-brand,
-.navbar .nav-link {
-  color: #ffffff !important; 
+.navbar .navbar-brand {
+  font-weight: bold;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
-.dropdown .btn{
+.navbar .navbar-brand,
+.navbar .nav-link {
+  color: #ffffff !important;
+}
+
+.dropdown .btn {
   color: whitesmoke !important;
 }
 
@@ -42,4 +43,95 @@
 
 .dropdown-item {
   text-align: left;
+}
+
+.search-input {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border: 1px solid #ffffff !important;
+}
+
+.search-input::placeholder {
+  color: #6c757d !important;
+}
+
+.btn-outline-light {
+  border-color: #ffffff !important;
+  color: #ffffff !important;
+}
+
+.btn-outline-light:hover {
+  background-color: #ffffff !important;
+  color: #8B0000 !important;
+}
+
+.container-fluid {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+}
+
+.navbar-nav {
+  display: flex;
+  flex-direction: row;
+  margin: 0 20px;
+}
+
+.navbar-actions {
+  display: flex;
+  align-items: center;
+  margin-left: auto;
+}
+
+.search-form {
+  margin: 0 10px;
+}
+
+.lang-ar .container-fluid {
+  flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+.lang-ar .navbar-nav {
+  margin: 0 20px;
+  order: 1;
+}
+
+.lang-ar .navbar-brand {
+  order: 2;
+}
+
+.lang-ar .navbar-actions {
+  order: 0;
+  margin-right: auto;
+  margin-left: 0;
+}
+
+.lang-ar .search-form {
+  margin: 0 10px;
+  flex-direction: row-reverse;
+}
+
+.lang-ar .dropdown-menu-end {
+  right: auto;
+  left: 0;
+}
+
+@media (max-width: 576px) {
+  .search-input {
+    max-width: 150px;
+    font-size: 14px;
+  }
+
+  .navbar-nav {
+    margin: 0 10px;
+  }
+
+  .lang-ar .navbar-nav {
+    margin: 0 10px;
+  }
+
+  .lang-ar .search-form {
+    margin: 0 5px;
+  }
 }
