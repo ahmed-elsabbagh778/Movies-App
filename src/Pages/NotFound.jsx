@@ -1,7 +1,7 @@
 import { Link } from "react-router-dom";
 import "./NotFound.css";
 import { Button } from "react-bootstrap";
-import { useLanguage } from "../Context/LanguageContext";
+import { useLanguage } from "../Context/languageContext";
 
 const NotFound = () => {
   const { language } = useLanguage();

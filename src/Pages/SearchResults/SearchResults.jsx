@@ -33,7 +33,7 @@ const SearchResults = () => {
                 setTotalPages(res.data.total_pages);
             })
             .catch((err) => console.log(err));
-    }, [page, query, language]);
+    }, [page, query, language, apiKey]);
 
     return (
         <div className="container">

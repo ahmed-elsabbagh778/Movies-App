@@ -1,24 +1,52 @@
-.container {
-  padding: 20px;
-}
-
-.popular-tv-shows {
-  color: #000;
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-  font-size: 2rem;
-  font-weight: bold;
-}
-
 .lang-ar .container {
   direction: rtl;
   text-align: right;
 }
 
-.lang-ar .popular-tv-shows {
+.lang-ar h2,
+.lang-ar p {
   text-align: right;
 }
 
 .lang-ar .row {
   display: flex;
   flex-direction: row-reverse;
+  justify-content: flex-end;
+  flex-wrap: wrap;
+}
+
+.lang-ar .pagination {
+  direction: rtl;
+}
+
+.pagination {
+  margin-top: 2rem;
+}
+
+.page-item .page-link {
+  color: #fff;
+  background-color: #333;
+  border: 1px solid #555;
+  border-radius: 4px;
+  margin: 0 2px;
+  padding: 8px 12px;
+  font-size: 1rem;
+}
+
+.page-item.active .page-link {
+  background-color: #007bff;
+  border-color: #007bff;
+  color: #fff;
+}
+
+.page-item.disabled .page-link {
+  color: #6c757d;
+  background-color: #333;
+  border-color: #555;
+  cursor: not-allowed;
+}
+
+.page-item .page-link:hover:not(.disabled) {
+  background-color: #555;
+  border-color: #777;
 }

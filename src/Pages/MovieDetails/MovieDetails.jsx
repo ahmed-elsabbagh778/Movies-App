@@ -27,7 +27,7 @@ const MovieDetails = () => {
       )
       .then((res) => setRecommendations(res.data.results))
       .catch((err) => console.log(err));
-  }, [id, language]);
+  }, [id, language, apiKey]);
 
   if (!movie) return <LoadingSpinner />;
   return (

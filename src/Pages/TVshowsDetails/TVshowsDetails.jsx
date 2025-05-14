@@ -25,7 +25,7 @@ const TVshowsDetails = () => {
       .get(`/tv/${id}/recommendations?api_key=${apiKey}&language=${language}`)
       .then((res) => setRecommendations(res.data.results))
       .catch((err) => console.log(err));
-  }, [id, language]);
+  }, [id, language, apiKey]);
 
   if (!tvShows) return <LoadingSpinner />;
   return (

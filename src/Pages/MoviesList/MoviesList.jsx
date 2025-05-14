@@ -29,8 +29,7 @@ const MoviesList = () => {
         setTotalPages(res.data.total_pages);
       })
       .catch((err) => console.log(err));
-  }, [page, language]);
-
+  }, [page, language, apiKey]);
   return (
     <div className="container">
       <div className="row mt-5 g-4">
