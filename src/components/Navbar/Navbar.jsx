@@ -1,16 +1,28 @@
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { useLanguage } from "../../Context/languageContext";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faLanguage } from "@fortawesome/free-solid-svg-icons";
+import { faLanguage, faSearch } from "@fortawesome/free-solid-svg-icons";
 import "./Navbar.css";
+import { useState } from "react";
 
 function Navbar() {
   const { language, setLanguage } = useLanguage();
+  const [searchQuery, setSearchQuery] = useState("");
+  const navigate = useNavigate();
 
   const changeDirection = (language) => {
     setLanguage(language);
   };
+
+  const handleSearch = (e) => {
+    e.preventDefault();
+    if (searchQuery.trim()) {
+      navigate(`/search/${encodeURIComponent(searchQuery)}`);
+      setSearchQuery(""); // Clear input after search
+    }
+  };
+
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-light p-3">
       <div className="container-fluid">
@@ -33,6 +45,19 @@ function Navbar() {
             </Link>
           </li>
         </ul>
+
+        <form className={`d-flex me-3 lang-${language}`} onSubmit={handleSearch}>
+          <input
+            type="text"
+            className="form-control me-2 search-input"
+            placeholder={language === "ar" ? "ابحث عن فيلم..." : "Search for a movie..."}
+            value={searchQuery}
+            onChange={(e) => setSearchQuery(e.target.value)}
+          />
+          <button className="btn btn-outline-light" type="submit">
+            <FontAwesomeIcon icon={faSearch} />
+          </button>
+        </form>
 
         <div className="dropdown">
           <button

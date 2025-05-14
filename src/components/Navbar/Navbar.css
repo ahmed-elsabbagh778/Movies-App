@@ -1,6 +1,6 @@
 .navbar {
-  background-color: #8B0000 !important;  
-  color: #ffffff !important;  
+  background-color: #8B0000 !important;
+  color: #ffffff !important;
 }
 
 @media (min-width: 992px) {
@@ -16,16 +16,17 @@
   }
 }
 
-.navbar .navbar-brand{
-    font-weight: bold;
-    font-family: 'Josefin Sans', sans-serif;
-}
-.navbar .navbar-brand,
-.navbar .nav-link {
-  color: #ffffff !important; 
+.navbar .navbar-brand {
+  font-weight: bold;
+  font-family: 'Josefin Sans', sans-serif;
 }
 
-.dropdown .btn{
+.navbar .navbar-brand,
+.navbar .nav-link {
+  color: #ffffff !important;
+}
+
+.dropdown .btn {
   color: whitesmoke !important;
 }
 
@@ -42,4 +43,53 @@
 
 .dropdown-item {
   text-align: left;
+}
+
+.search-input {
+  background-color: #ffffff !important;
+  color: #000000 !important;
+  border: 1px solid #ffffff !important;
+}
+
+.search-input::placeholder {
+  color: #6c757d !important;
+}
+
+.btn-outline-light {
+  border-color: #ffffff !important;
+  color: #ffffff !important;
+}
+
+.btn-outline-light:hover {
+  background-color: #ffffff !important;
+  color: #8B0000 !important;
+}
+
+.lang-ar .btn-outline-light {
+  margin-right: 8px;
+  /* Add spacing in RTL mode */
+}
+
+.lang-ar .search-input {
+  margin-left: 8px;
+  /* Adjust input margin for RTL */
+  margin-right: 0;
+  /* Reset default margin */
+}
+
+@media (max-width: 576px) {
+  .search-input {
+    max-width: 150px;
+    font-size: 14px;
+  }
+
+  .lang-ar .btn-outline-light {
+    margin-right: 4px;
+    /* Smaller margin for mobile in RTL */
+  }
+
+  .lang-ar .search-input {
+    margin-left: 4px;
+    /* Smaller margin for mobile in RTL */
+  }
 }
