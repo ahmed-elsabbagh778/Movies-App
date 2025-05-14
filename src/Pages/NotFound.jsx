@@ -18,7 +18,6 @@ const NotFound = () => {
                 Back To Home
               </Link>
             </Button>
-            
           </div>
         </div>
       </div>
