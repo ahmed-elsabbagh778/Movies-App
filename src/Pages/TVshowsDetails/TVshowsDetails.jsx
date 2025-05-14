@@ -32,7 +32,7 @@ const TVshowsDetails = () => {
     <div className={`lang-${language}`}>
       <div className="tvShows-details container-fluid px-5">
         <div className="row align-items-center">
-          <div className="col-md-4 poster-container">
+          <div className={`col-md-4 poster-container lang-${language}`}>
             <img
               src={`https://image.tmdb.org/t/p/w500${tvShows.poster_path}`}
               alt={tvShows.name}

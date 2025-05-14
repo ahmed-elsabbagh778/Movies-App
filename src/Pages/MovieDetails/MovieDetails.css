@@ -116,7 +116,18 @@ body {
 }
 
 .lang-ar .row {
+  display: flex;
   flex-direction: row-reverse;
+  justify-content: flex-end;
+}
+
+.lang-ar .poster-container {
+  order: 2;
+  justify-content: flex-end;
+}
+
+.lang-ar .info-container {
+  order: 1;
 }
 
 .lang-ar .genres {

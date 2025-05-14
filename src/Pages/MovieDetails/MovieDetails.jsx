@@ -34,7 +34,7 @@ const MovieDetails = () => {
     <div className={`lang-${language}`}>
       <div className="movie-details container-fluid px-5">
         <div className="row align-items-center">
-          <div className="col-md-3 poster-container">
+          <div className={`col-md-3 poster-container lang-${language}`}>
             <img
               src={`https://image.tmdb.org/t/p/w500${movie.poster_path}`}
               alt={movie.title}
