@@ -2,7 +2,7 @@ import "./Favourites.css";
 import { useSelector } from "react-redux";
 import MovieCard from "../../components/MovieCard/MovieCard";
 import { faShower } from "@fortawesome/free-solid-svg-icons";
-import TVShowsCard from "../../components/TVShowsCard/TVShowsCard";
+import TVShowsCard from "../../components/TVShowsCard/TVShowsCard.jsx";
 
 function Favorites() {
   const moviesWatchList = useSelector(
