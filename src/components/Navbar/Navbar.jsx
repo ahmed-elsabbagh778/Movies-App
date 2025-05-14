@@ -11,15 +11,15 @@ function Navbar() {
   const [searchQuery, setSearchQuery] = useState("");
   const navigate = useNavigate();
 
-  const changeDirection = (language) => {
-    setLanguage(language);
+  const changeDirection = (lang) => {
+    setLanguage(lang);
   };
 
   const handleSearch = (e) => {
     e.preventDefault();
     if (searchQuery.trim()) {
       navigate(`/search/${encodeURIComponent(searchQuery)}`);
-      setSearchQuery(""); // Clear input after search
+      setSearchQuery("");
     }
   };
 
@@ -31,17 +31,17 @@ function Navbar() {
         <ul className="navbar-nav me-lg-auto mb-2 mb-lg-0">
           <li className="nav-item">
             <Link to="/" className="nav-link px-3">
-              Movies
+              {language === "ar" ? "الأفلام" : language === "fr" ? "Films" : language === "zh" ? "电影" : "Movies"}
             </Link>
           </li>
           <li className="nav-item">
             <Link to="/tvShows" className="nav-link px-3">
-              TV Shows
+              {language === "ar" ? "البرامج التلفزيونية" : language === "fr" ? "Émissions TV" : language === "zh" ? "电视剧" : "TV Shows"}
             </Link>
           </li>
           <li className="nav-item">
             <Link to="/favourites" className="nav-link px-3">
-              Favourites
+              {language === "ar" ? "المفضلة" : language === "fr" ? "Favoris" : language === "zh" ? "收藏" : "Favourites"}
             </Link>
           </li>
         </ul>
@@ -50,7 +50,7 @@ function Navbar() {
           <input
             type="text"
             className="form-control me-2 search-input"
-            placeholder={language === "ar" ? "ابحث عن فيلم..." : "Search for a movie..."}
+            placeholder={language === "ar" ? "ابحث عن فيلم..." : language === "fr" ? "Rechercher un film..." : language === "zh" ? "搜索电影..." : "Search for a movie..."}
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
           />

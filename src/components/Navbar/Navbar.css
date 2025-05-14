@@ -67,14 +67,11 @@
 
 .lang-ar .btn-outline-light {
   margin-right: 8px;
-  /* Add spacing in RTL mode */
 }
 
 .lang-ar .search-input {
   margin-left: 8px;
-  /* Adjust input margin for RTL */
   margin-right: 0;
-  /* Reset default margin */
 }
 
 @media (max-width: 576px) {
@@ -85,11 +82,9 @@
 
   .lang-ar .btn-outline-light {
     margin-right: 4px;
-    /* Smaller margin for mobile in RTL */
   }
 
   .lang-ar .search-input {
     margin-left: 4px;
-    /* Smaller margin for mobile in RTL */
   }
 }

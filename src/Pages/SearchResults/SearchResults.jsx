@@ -41,7 +41,11 @@ const SearchResults = () => {
                 <h2 className="search-results">
                     {language === "ar"
                         ? `نتائج البحث عن "${query}"`
-                        : `Search Results for "${query}"`}
+                        : language === "fr"
+                            ? `Résultats de recherche pour "${query}"`
+                            : language === "zh"
+                                ? `搜索"${query}"的结果`
+                                : `Search Results for "${query}"`}
                 </h2>
                 {movies.length > 0 ? (
                     movies.map((movie) => (
@@ -56,7 +60,11 @@ const SearchResults = () => {
                     <p>
                         {language === "ar"
                             ? "لا توجد نتائج مطابقة."
-                            : "No results found."}
+                            : language === "fr"
+                                ? "Aucun résultat trouvé."
+                                : language === "zh"
+                                    ? "未找到匹配的结果。"
+                                    : "No results found."}
                     </p>
                 )}
             </div>
