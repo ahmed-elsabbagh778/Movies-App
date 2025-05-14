@@ -5,9 +5,21 @@ import { faHeart as regularHeart } from "@fortawesome/free-regular-svg-icons";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
 import { Link } from "react-router-dom";
 import "./TVShowsCard.css";
+import { useDispatch, useSelector } from "react-redux";
+import { addRemoveShow } from "../../store/slices/watchList";
 
 function TVShowsCard({ tvShow }) {
   if (!tvShow || !tvShow.poster_path) return null;
+
+  const watchList = useSelector((state) => state.watchList.showsWatchList);
+  console.log(tvShow.id);
+
+  const isInWatchList = watchList.some((item) => item.id === tvShow.id);
+
+  const dispatch = useDispatch();
+  const handleWatchList = () => {
+    dispatch(addRemoveShow(tvShow));
+  };
 
   return (
     <Card className="tvShow-card">
@@ -26,9 +38,7 @@ function TVShowsCard({ tvShow }) {
         </Link>
       </div>
 
-      <Badge className="tvShow-rate">
-        {tvShow.vote_average?.toFixed(1)}
-      </Badge>
+      <Badge className="tvShow-rate">{tvShow.vote_average?.toFixed(1)}</Badge>
 
       <Card.Body className="tvShow-card-body">
         <Card.Title className="tvShow-card-title">{tvShow.name}</Card.Title>
@@ -36,8 +46,15 @@ function TVShowsCard({ tvShow }) {
           {tvShow.first_air_date}
         </Card.Text>
 
-        <button style={{ background: "none", border: "none" }}>
-          <FontAwesomeIcon icon={regularHeart} style={{ color: "gray" }} />
+        <button
+          className="fav-btn"
+          onClick={handleWatchList}
+          style={{ background: "none", border: "none" }}
+        >
+          <FontAwesomeIcon
+            icon={isInWatchList ? solidHeart : regularHeart}
+            style={{ color: isInWatchList ? "red" : "gray" }}
+          />
         </button>
       </Card.Body>
     </Card>

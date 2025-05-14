@@ -87,7 +87,6 @@
   z-index: 3;
 }
 
-
 @media (max-width: 576px) {
   .movie-card {
     max-width: 140px;
@@ -101,4 +100,18 @@
       font-size: 14px;
     }
   }
+}
+
+.movie-card {
+  position: relative;
+}
+
+.fav-btn {
+  position: absolute;
+  top: 2%;
+  left: 4%;
+  background: none;
+  border: none;
+  z-index: 2;
+  cursor: pointer;
 }

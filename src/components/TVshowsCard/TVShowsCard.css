@@ -101,3 +101,17 @@
     }
   }
 }
+
+.tvShow-card {
+  position: relative;
+}
+
+.fav-btn {
+  position: absolute;
+  top: 2%;
+  left: 4%;
+  background: none;
+  border: none;
+  z-index: 2;
+  cursor: pointer;
+}
