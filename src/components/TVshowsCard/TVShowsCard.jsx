@@ -26,18 +26,18 @@ function TVShowsCard({ tvShow }) {
   return (
     <Card className="tvShow-card">
       <div className="image-container">
-        <Link to={`/tv/${tvShow.id}`} className="full-link">
-          <Card.Img
-            className="tvShow-card-img"
-            variant="top"
-            src={`https://image.tmdb.org/t/p/w500/${tvShow.poster_path}`}
-            alt={tvShow.name}
-          />
-          <div className="overlay"></div>
-          <div className="video-icon">
-            <FontAwesomeIcon icon={faEye} />
-          </div>
-        </Link>
+        {/* <Link to={`/tv/${tvShow.id}`} className="full-link"> */}
+        <Card.Img
+          className="tvShow-card-img"
+          variant="top"
+          src={`https://image.tmdb.org/t/p/w500/${tvShow.poster_path}`}
+          alt={tvShow.name}
+        />
+        <div className="overlay"></div>
+        <div className="video-icon">
+          <FontAwesomeIcon icon={faEye} />
+        </div>
+        {/* </Link> */}
       </div>
 
       <Badge className="tvShow-rate">{tvShow.vote_average?.toFixed(1)}</Badge>

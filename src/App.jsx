@@ -1,17 +1,22 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min.js";
-import { BrowserRouter as Router } from "react-router-dom";
-import Navbar from "./components/Navbar/Navbar.jsx";
-import RoutesList from "./Routes/RoutesList";
 import { LanguageProvider } from "./Context/languageContext";
+import MoviesList from "./Pages/MoviesList/MoviesList.jsx";
+import Favourites from "./Pages/Favourites/Favourites.jsx";
+import NotFound from "./Pages/NotFound.jsx";
+import TvShowsList from "./Pages/TVshowsList/TVShowsList.jsx";
+import TVshowsDetails from "./Pages/TVshowsDetails/TVshowsDetails.jsx";
+import MovieDetails from "./Pages/MovieDetails/MovieDetails.jsx";
 
 function App() {
   return (
     <LanguageProvider>
-      <Router>
-        <Navbar />
-        <RoutesList />
-      </Router>
+      <MoviesList />
+      <TvShowsList />
+      <Favourites />
+      <TVshowsDetails />
+      <MovieDetails />
+      <NotFound />
     </LanguageProvider>
   );
 }

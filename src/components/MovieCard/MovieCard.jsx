@@ -7,7 +7,7 @@ import { addRemoveMovie } from "../../store/slices/watchList";
 import { faHeart as solidHeart } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as regularHeart } from "@fortawesome/free-regular-svg-icons";
 import { faEye } from "@fortawesome/free-solid-svg-icons";
-import { Link } from "react-router-dom";
+// import { Link } from "react-router-dom";
 
 function MovieCard(props) {
   const { movie } = props;
@@ -24,7 +24,7 @@ function MovieCard(props) {
   return (
     <Card className="movie-card">
       <div className="image-container">
-        <Link to={`/movie/${movie.id}`} className="full-link">
+        {/* <Link to={`/movie/${movie.id}`} className="full-link"> */}
           <Card.Img
             className="movie-card-img"
             variant="top"
@@ -35,7 +35,7 @@ function MovieCard(props) {
           <div className="video-icon">
             <FontAwesomeIcon icon={faEye} />
           </div>
-        </Link>
+        {/* </Link> */}
       </div>
       <Badge className="movie-rate">{movie.vote_average.toFixed(1)}</Badge>
       <Card.Body className="movie-card-body">
