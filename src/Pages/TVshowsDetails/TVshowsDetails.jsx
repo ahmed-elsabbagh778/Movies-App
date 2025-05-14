@@ -5,7 +5,7 @@ import { axiosInstance } from "../../apis/config";
 import LoadingSpinner from "../../components/LoadingSpinner";
 import "./TVshowsDetails.css";
 import { useLanguage } from "../../Context/languageContext";
-import TVShowsCard from "../../components/TVShowsCard/TVShowsCard";
+import TVShowsCard from "../../components/TVshowsCard/TVShowsCard";
 
 const TVshowsDetails = () => {
   const { id } = useParams();
