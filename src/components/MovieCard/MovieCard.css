@@ -7,6 +7,9 @@
   border: none !important;
   background-color: transparent !important;
   height: 100%;
+  @media (max-width: 1280px) {
+    width: 11rem;
+  }
 
   .movie-card-title {
     font-size: medium;
