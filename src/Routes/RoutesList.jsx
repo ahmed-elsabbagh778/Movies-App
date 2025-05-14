@@ -1,11 +1,11 @@
 import React, { Suspense, lazy } from "react";
 import { Route, Routes } from "react-router";
-const MoviesList  = lazy (() => import("../Pages/MoviesList/MoviesList"));
-const TVshowsDetails  = lazy(() => import ("../Pages/TVshowsDetails/TVshowsDetails"));
-const MovieDetails = lazy(() => import("../Pages/MovieDetails/MovieDetails"));
+const MoviesList  = lazy (() => import("../Pages/MoviesList/MoviesList.jsx"));
+const TVshowsDetails  = lazy(() => import ("../Pages/TVshowsDetails/TVshowsDetails.jsx"));
+const MovieDetails = lazy(() => import("../Pages/MovieDetails/MovieDetails.jsx"));
 const Favourites = lazy(() => import("../Pages/Favourites/favourites.jsx"));
-const NotFound = lazy(() => import("../pages/NotFound"));
-const TvShowsList = lazy(() => import("../Pages/TVshowsList/TVShowsList"));
+const NotFound = lazy(() => import("../pages/NotFound.jsx"));
+const TvShowsList = lazy(() => import("../Pages/TVshowsList/TVShowsList.jsx"));
 
 export default function RoutesList() {
   return (
