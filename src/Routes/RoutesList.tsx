@@ -3,7 +3,7 @@ import { Route, Routes } from "react-router";
 const MoviesList  = lazy (() => import("../Pages/MoviesList/MoviesList"));
 const TVshowsDetails  = lazy(() => import ("../Pages/TVshowsDetails/TVshowsDetails"));
 const MovieDetails = lazy(() => import("../Pages/MovieDetails/MovieDetails"));
-const Favourites = lazy(() => import("../pages/Favourites/Favourites"));
+const Favourites = lazy(() => import("../pages/Favourites/Favourites.jsx"));
 const NotFound = lazy(() => import("../pages/NotFound"));
 const TvShowsList = lazy(() => import("../Pages/TVshowsList/TVShowsList"));
 
