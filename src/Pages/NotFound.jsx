@@ -1,4 +1,4 @@
-// import { Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./NotFound.css";
 import { Button } from "react-bootstrap";
 
@@ -14,7 +14,9 @@ const NotFound = () => {
               The page you're looking for doesn't exist or has been moved.
             </p>
             <Button className="custom-btn">
-              {/* <Link to={"/"} className="link">Back To Home</Link> */}
+              <Link to={"/"} className="link">
+                Back To Home
+              </Link>
             </Button>
           </div>
         </div>

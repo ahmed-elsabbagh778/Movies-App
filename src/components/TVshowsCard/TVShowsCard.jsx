@@ -26,7 +26,7 @@ function TVShowsCard({ tvShow }) {
   return (
     <Card className="tvShow-card">
       <div className="image-container">
-        {/* <Link to={`/tv/${tvShow.id}`} className="full-link"> */}
+        <Link to={`/tv/${tvShow.id}`} className="full-link">
         <Card.Img
           className="tvShow-card-img"
           variant="top"
@@ -37,7 +37,7 @@ function TVShowsCard({ tvShow }) {
         <div className="video-icon">
           <FontAwesomeIcon icon={faEye} />
         </div>
-        {/* </Link> */}
+        </Link>
       </div>
 
       <Badge className="tvShow-rate">{tvShow.vote_average?.toFixed(1)}</Badge>
